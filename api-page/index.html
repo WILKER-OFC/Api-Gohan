@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="blue">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Browse through our collection of code snippets, scripts, and tools. Find what you need or discover something new.">
     <meta name="theme-color" content="#1a202c">
-    <title>API-GOHAN.</title>
+    <title>GOHAN-API.</title>
     <link rel="icon" href="/assets/icon.png" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,13 @@
     darkMode: 'class',
     theme: {
       extend: {
+        colors: {
+            beast: {
+                red: '#ed3c6d',
+                purple: '#4c1d95',
+                silver: '#cbd5e1'
+            }
+        },
         fontFamily: {
           'mono': ['Ubuntu Mono', 'monospace'],
           'sans': ['Inter', 'system-ui', 'sans-serif']
@@ -31,16 +38,36 @@
         ::-webkit-scrollbar {
             display: none !important;
         }
+        body {
+            background-color: #0f172a;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .beast-aura {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(237, 60, 109, 0.1) 0%, rgba(76, 29, 149, 0.05) 50%, transparent 100%);
+            z-index: -1;
+            animation: aura-pulse 4s ease-in-out infinite alternate;
+        }
+        @keyframes aura-pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
         .glass {
             backdrop-filter: blur(16px) saturate(180%);
-            background: rgba(23, 25, 35, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.125);
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(237, 60, 109, 0.2);
         }
         .loader {
             width: 28px;
             height: 28px;
-            border: 2px solid #000000;
-            border-top: 2px solid #00FF00;
+            border: 2px solid #ed3c6d;
+            border-top: 2px solid #cbd5e1;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -48,23 +75,24 @@
             to { transform: rotate(360deg); }
         }
         .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #cbd5e1 0%, #ed3c6d 50%, #4c1d95 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .btn-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ed3c6d 0%, #4c1d95 100%);
             transition: all 0.3s ease;
         }
         .btn-gradient:hover {
             transform: translateY(-1px);
-            box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px -5px rgba(237, 60, 109, 0.4);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-slate-300 antialiased font-mono min-h-screen">
-    <main class="max-w-2xl mx-auto px-8 py-16">
+<body class="bg-gray-950 text-slate-300 antialiased font-mono min-h-screen">
+    <div class="beast-aura"></div>
+    <main class="max-w-2xl mx-auto px-8 py-16 relative z-10">
 
 <div class="text-left mb-8">
     <div class="flex items-center gap-4 mb-4">
@@ -78,7 +106,7 @@ Bienvenid@ a la documentación GOHAN-API. Activos gracias a la ayuda de Yo soy y
      <div class="mb-4 text-xs space-y-1">
             
                 <div>
-                    <a href="https://wa.me/+584125877491" target="_blank" class="text-slate-300 hover:text-white underline">Contact.</a>
+                    <a href="https://wa.me/+584125877491" target="_blank" class="text-beast-red hover:text-white underline">Contact.</a>
                 </div>
             
         </div>
@@ -87,11 +115,11 @@ Bienvenid@ a la documentación GOHAN-API. Activos gracias a la ayuda de Yo soy y
 <!-- Notifications Panel -->
 <div class="mb-8">
     <div class="flex items-center justify-between mb-3">
-        <h2 class="text-lg font-semibold text-slate-300 flex items-center">
-            <span class="material-icons text-xl mr-2 text-gray-400">notifications</span>
+        <h2 class="text-lg font-semibold text-beast-silver flex items-center">
+            <span class="material-icons text-xl mr-2 text-beast-red">notifications</span>
             Información api
         </h2>
-        <span id="unread-count" class="text-xs bg-indigo-500/50 text-indigo-300 px-2 py-1 rounded-full hidden"></span>
+        <span id="unread-count" class="text-xs bg-beast-red/20 text-beast-red px-2 py-1 rounded-full hidden"></span>
     </div>
     <div id="notifications-list" class="space-y-2">
         <!-- Notifications will be loaded here -->
@@ -102,13 +130,13 @@ Bienvenid@ a la documentación GOHAN-API. Activos gracias a la ayuda de Yo soy y
 <div class="flex items-center justify-between mb-4">
     <div class="flex-1 relative">
         <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-            <span class="material-icons text-gray-500 text-lg">search</span>
+            <span class="material-icons text-beast-red text-lg">search</span>
         </div>
         <input 
             type="text" 
             id="searchInput" 
             placeholder="Search API endpoints..." 
-            class="w-full pl-12 pr-5 py-4 text-sm border border-gray-700 bg-gray-800 text-slate-300 placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+            class="w-full pl-12 pr-5 py-4 text-sm border border-beast-purple bg-gray-900 text-slate-300 placeholder-slate-500 focus:outline-none focus:border-beast-red transition-colors"
         >
     </div>
 </div>
@@ -125,11 +153,11 @@ Bienvenid@ a la documentación GOHAN-API. Activos gracias a la ayuda de Yo soy y
     </div>
 </div>
 <footer>
-    <p class="text-slate-400 text-xs mx-auto mb-4">
-      copyright 2026 WILKER-OFC OFC  
+    <p class="text-slate-500 text-xs mx-auto mb-4 mt-12">
+      2026 WILKER-OFC   
     </p>
-    <p class="text-slate-400 text-xs mx-auto mb-4">
-inspirasi design dari: <a href="https://yosoyyo-api-ofc.onrender.com/" target="_blank">https://yosoyyo-api-ofc.onrender.com</a>   
+    <p class="text-slate-500 text-xs mx-auto mb-4">
+inspirasi design dari: <a href="https://api.nekolabs.my.id/" target="_blank" class="hover:text-beast-red">api.nekolabs.my.id</a>   
     </p>
 </footer>
 </main>
@@ -184,17 +212,17 @@ inspirasi design dari: <a href="https://yosoyyo-api-ofc.onrender.com/" target="_
             const contentType = response.headers.get("content-type");
             if (contentType && contentType.includes("application/json")) {
                 const data = await response.json();
-                responseContent.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                responseContent.innerHTML = `<pre class="whitespace-pre-wrap">${JSON.stringify(data, null, 2)}</pre>`;
             } else if (contentType && contentType.startsWith("image/")) {
                 const blob = await response.blob();
                 const imageUrl = URL.createObjectURL(blob);
                 responseContent.innerHTML = `<img src="${imageUrl}" class="max-w-full h-auto rounded-md">`;
             } else {
                 const text = await response.text();
-                responseContent.innerHTML = `<pre>${text}</pre>`;
+                responseContent.innerHTML = `<pre class="whitespace-pre-wrap">${text}</pre>`;
             }
         } catch (error) {
-            responseContent.innerHTML = `<pre>${error}</pre>`;
+            responseContent.innerHTML = `<pre class="whitespace-pre-wrap text-beast-red">${error}</pre>`;
         }
         clearButton.classList.remove('hidden');
     }
@@ -220,14 +248,14 @@ inspirasi design dari: <a href="https://yosoyyo-api-ofc.onrender.com/" target="_
                 html += `
                 <div class="category-group" data-category="${category.name}">
                     <div class="mb-2">
-                        <div class="bg-gray-800 border border-gray-700">
-                            <button onclick="toggleCategory(${catIndex})" class="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-700 transition-colors duration-150">
+                        <div class="bg-gray-900 border border-beast-purple/30">
+                            <button onclick="toggleCategory(${catIndex})" class="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-beast-purple/10 transition-colors duration-150">
                                 <h2 class="font-bold flex items-center">
-                                    <span class="material-icons text-lg mr-3 text-gray-400">folder</span>
-                                    <span class="truncate max-w-xs text-sm">${category.name}</span>
-                                    <span class="ml-2 text-xs text-gray-500">(${category.items.length})</span>
+                                    <span class="material-icons text-lg mr-3 text-beast-red">folder</span>
+                                    <span class="truncate max-w-xs text-sm text-beast-silver">${category.name}</span>
+                                    <span class="ml-2 text-xs text-beast-red/60">(${category.items.length})</span>
                                 </h2>
-                                <span class="material-icons transition-transform duration-150" id="category-icon-${catIndex}">expand_more</span>
+                                <span class="material-icons transition-transform duration-150 text-beast-red" id="category-icon-${catIndex}">expand_more</span>
                             </button>
                             
                             <div id="category-${catIndex}" class="hidden">`;
@@ -239,45 +267,45 @@ inspirasi design dari: <a href="https://yosoyyo-api-ofc.onrender.com/" target="_
                     const queryParams = new URLSearchParams(pathParts[1] || '');
 
                     const statusClasses = {
-                        'ready': 'bg-green-500/20 text-green-400',
+                        'ready': 'bg-beast-red/20 text-beast-red',
                         'update': 'bg-yellow-500/20 text-yellow-400',
                         'error': 'bg-red-500/20 text-red-400'
                     };
                     const statusClass = statusClasses[item.status] || 'bg-gray-600';
 
                     html += `
-                                <div class="border-t border-gray-700 api-item" 
+                                <div class="border-t border-beast-purple/20 api-item" 
                                      data-method="${method}"
                                      data-path="${path}"
                                      data-alias="${item.name}"
                                      data-description="${item.desc}"
                                      data-category="${category.name}">
-                                    <button onclick="toggleEndpoint(${catIndex}, ${endpointIndex})" class="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-700 transition-colors duration-150">
+                                    <button onclick="toggleEndpoint(${catIndex}, ${endpointIndex})" class="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-beast-purple/10 transition-colors duration-150">
                                         <div class="flex items-center min-w-0 flex-1">
-                                            <span class="inline-block px-3 py-1 text-xs font-semibold text-white mr-3 flex-shrink-0 bg-gray-600">
+                                            <span class="inline-block px-3 py-1 text-xs font-semibold text-white mr-3 flex-shrink-0 bg-beast-purple">
                                                 ${method}
                                             </span>
                                             <div class="flex flex-col min-w-0 flex-1">
-                                                <span class="font-semibold truncate max-w-[90%] font-mono text-sm" title="${path}">${path}</span>
+                                                <span class="font-semibold truncate max-w-[90%] font-mono text-sm text-slate-200" title="${path}">${path}</span>
                                                 <div class="flex items-center">
-                                                    <span class="text-xs text-gray-400 truncate max-w-[90%]" title="${item.name}">${item.name}</span>
-                                                    <span class="ml-2 px-2 py-0.5 text-xs rounded-full ${statusClass}">${item.status || 'ready'}</span>
+                                                    <span class="text-xs text-slate-500 truncate max-w-[90%]" title="${item.name}">${item.name}</span>
+                                                    <span class="ml-2 px-2 py-0.5 text-[10px] rounded-full ${statusClass}">${item.status || 'ready'}</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <span class="material-icons transition-transform duration-150 flex-shrink-0" id="endpoint-icon-${catIndex}-${endpointIndex}">expand_more</span>
+                                        <span class="material-icons transition-transform duration-150 flex-shrink-0 text-slate-500" id="endpoint-icon-${catIndex}-${endpointIndex}">expand_more</span>
                                     </button>
                                     
-                                    <div id="endpoint-${catIndex}-${endpointIndex}" class="hidden bg-gray-800 p-4 border-t border-gray-700">
+                                    <div id="endpoint-${catIndex}-${endpointIndex}" class="hidden bg-gray-900 p-4 border-t border-beast-purple/20">
                                         <div class="mb-3">
-                                            <div class="text-gray-400 text-xs">${item.desc}</div>
+                                            <div class="text-slate-400 text-xs">${item.desc}</div>
                                         </div>
                                         `;
                     if (item.status === 'ready') {
                         html += `
                                             <div>
-                                                <div class="text-gray-300 font-bold text-xs mb-2 flex items-center">
-                                                    <span class="material-icons text-sm mr-1">play_arrow</span>
+                                                <div class="text-beast-silver font-bold text-xs mb-2 flex items-center">
+                                                    <span class="material-icons text-sm mr-1 text-beast-red">play_arrow</span>
                                                     TRY IT OUT
                                                 </div>
                                                 <div>
@@ -287,33 +315,33 @@ inspirasi design dari: <a href="https://yosoyyo-api-ofc.onrender.com/" target="_
                             Object.keys(item.params).forEach(paramName => {
                                 const isRequired = !queryParams.has(paramName) || queryParams.get(paramName) === '';
                                  html += `<div>
-                                            <label class="block text-xs font-medium text-slate-400 mb-2">${paramName} ${isRequired ? '<span class="text-red-500">*</span>' : ''}</label>
-                                            <input type="text" name="${paramName}" class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-indigo-500 bg-gray-700 placeholder:text-slate-500" placeholder="${item.params[paramName]}" ${isRequired ? 'required' : ''}>
+                                            <label class="block text-xs font-medium text-slate-400 mb-2">${paramName} ${isRequired ? '<span class="text-beast-red">*</span>' : ''}</label>
+                                            <input type="text" name="${paramName}" class="w-full px-3 py-2 border border-beast-purple/50 text-sm focus:outline-none focus:border-beast-red bg-gray-800 text-slate-200 placeholder:text-slate-600" placeholder="${item.params[paramName]}" ${isRequired ? 'required' : ''}>
                                           </div>`;
                             });
                         }
                         html += `
                                                         </div>
-                                                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-500 font-semibold text-white px-6 py-2 text-xs font-medium transition-colors duration-150">
+                                                        <button type="submit" class="btn-gradient font-semibold text-white px-6 py-2 text-xs font-medium transition-colors duration-150">
                                                             Execute
                                                         </button>
-                                                        <button type="button" id="clear-${catIndex}-${endpointIndex}" onclick="clearResponse(${catIndex}, ${endpointIndex})" class="hidden bg-gray-700 border border-gray-600 hover:border-gray-500 font-semibold text-slate-300 px-6 py-2 text-xs font-medium transition-colors duration-150 ml-2">
+                                                        <button type="button" id="clear-${catIndex}-${endpointIndex}" onclick="clearResponse(${catIndex}, ${endpointIndex})" class="hidden bg-gray-800 border border-beast-purple/50 hover:border-beast-red font-semibold text-slate-300 px-6 py-2 text-xs font-medium transition-colors duration-150 ml-2">
                                                             Clear
                                                         </button>
                                                     </form>
                                                 </div>
                                             </div>`;
                     } else {
-                        html += `<div class="text-yellow-400 text-xs p-3 bg-yellow-500/20 border border-yellow-500/30">Endpoint ini tidak dapat diuji coba saat ini.</div>`;
+                        html += `<div class="text-yellow-400 text-xs p-3 bg-yellow-500/20 border border-yellow-500/30">Endpoint ini no activo.</div>`;
                     }
 
                     html += `
                                         <div id="response-${catIndex}-${endpointIndex}" class="hidden mt-4">
-                                            <div class="text-gray-300 font-bold text-xs mb-2 flex items-center">
-                                                <span class="material-icons text-sm mr-1">code</span>
+                                            <div class="text-beast-silver font-bold text-xs mb-2 flex items-center">
+                                                <span class="material-icons text-sm mr-1 text-beast-red">code</span>
                                                 RESPONSE
                                             </div>
-                                            <div class="bg-gray-900 text-white text-xs p-4 border border-gray-700">
+                                            <div class="bg-black/50 text-slate-300 text-xs p-4 border border-beast-purple/30">
                                                 <div class="max-h-80 overflow-auto" id="response-content-${catIndex}-${endpointIndex}"></div>
                                             </div>
                                         </div>
@@ -324,7 +352,7 @@ inspirasi design dari: <a href="https://yosoyyo-api-ofc.onrender.com/" target="_
             });
             apiList.innerHTML = html;
         } catch (error) {
-            apiList.innerHTML = '<p class="text-red-500">Failed to load API data.</p>';
+            apiList.innerHTML = '<p class="text-beast-red">Failed to load API data.</p>';
             console.error('Error loading API data:', error);
         }
     }
@@ -348,15 +376,15 @@ inspirasi design dari: <a href="https://yosoyyo-api-ofc.onrender.com/" target="_
                     unreadCount++;
                 }
                 const notifElement = document.createElement('div');
-                notifElement.className = `bg-gray-800 border border-gray-700 p-4 text-xs ${notif.read ? 'opacity-60' : ''}`;
+                notifElement.className = `bg-gray-900/50 border border-beast-purple/20 p-4 text-xs ${notif.read ? 'opacity-60' : ''}`;
                 notifElement.innerHTML = `
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <p class="font-bold text-slate-300 mb-1">${notif.title}</p>
+                            <p class="font-bold text-beast-silver mb-1">${notif.title}</p>
                             <p class="text-slate-400">${notif.message}</p>
                         </div>
                         <div class="flex items-center ml-4 flex-shrink-0">
-                            ${!notif.read ? '<div class="w-2 h-2 bg-green-400 rounded-full mr-2" title="Unread"></div>' : ''}
+                            ${!notif.read ? '<div class="w-2 h-2 bg-beast-red rounded-full mr-2" title="Unread"></div>' : ''}
                             <span class="text-slate-500">${new Date(notif.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
                         </div>
                     </div>
@@ -365,12 +393,12 @@ inspirasi design dari: <a href="https://yosoyyo-api-ofc.onrender.com/" target="_
             });
 
             if (unreadCount > 0) {
-                unreadCountBadge.textContent = `${unreadCount} Belum dibaca`;
+                unreadCountBadge.textContent = `${unreadCount} Nuevo`;
                 unreadCountBadge.classList.remove('hidden');
             }
 
         } catch (error) {
-            notificationsList.innerHTML = '<p class="text-red-500 text-xs">Gagal memuat notifikasi.</p>';
+            notificationsList.innerHTML = '<p class="text-beast-red text-xs">Gagal memuat notifikasi.</p>';
             console.error('Error loading notifications:', error);
         }
     }
