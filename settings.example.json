@@ -1,5 +1,5 @@
 {
-  "name": "Api-Gohan",
+  "name": "GOHAN-API",
   "version": "v1.2",
   "description": "Simple and easy to use API.",
   "bannerImage": "/src/banner.jpg",
@@ -7,7 +7,7 @@
     "status": "Online!"
   },
   "apiSettings": {
-    "creator": "Devwilker",
+    "creator": "WILKER-OFC",
     "apikey": ["YOUR_API_KEY"]
   },
   "categories": [

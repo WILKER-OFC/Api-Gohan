@@ -1,4 +1,4 @@
-# Api-Gohan
+# GOHAN-API
 API en Express para servir endpoints y una página de documentación (`api-page/`).
 
 ## Requisitos

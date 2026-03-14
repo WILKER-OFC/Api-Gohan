@@ -17,7 +17,7 @@ module.exports = function (app) {
     if (!prompt) {
       return res.status(400).json({
         status: false,
-        creator: 'FlowFalcon',
+        creator: 'WILKER-OFC',
         message: 'Parameter "prompt" wajib diisi.'
       });
     }
@@ -77,7 +77,7 @@ module.exports = function (app) {
     } catch (err) {
       return res.status(500).json({
         status: false,
-        creator: 'FlowFalcon',
+        creator: 'WILKER-OFC',
         message: 'Gagal memproses permintaan',
         error: err.message
       });

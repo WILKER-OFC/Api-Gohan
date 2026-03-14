@@ -1,5 +1,5 @@
 {
-  "name": "Api-Gohan",
+  "name": "GOHAN-API",
   "version": "v2.0",
   "description": "simple and powerful tools API and easy to use",
   "bannerImage": "/assets/banner.jpg",
@@ -7,7 +7,7 @@
     "status": "Online!"
   },
   "apiSettings": {
-    "creator": "FlowFalcon",
+    "creator": "WILKER-OFC",
     "apikey": [
       "falcon-api"
     ]

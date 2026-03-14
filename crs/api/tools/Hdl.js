@@ -45,7 +45,7 @@ module.exports = function (app) {
       const result = data.data;
       res.json({
         status: true,
-        creator: 'FlowFalcon',
+        creator: 'WILKER-OFC',
         result: {
           url: result.url,
           filename: result.filename,

@@ -50,7 +50,7 @@ module.exports = function (app) {
 
       res.json({
         status: true,
-        creator: "FlowFalcon",
+        creator: "WILKER-OFC",
         original: "https://emailku.cloudku.click/",
         result: response.data.data
       });
@@ -58,7 +58,7 @@ module.exports = function (app) {
     } catch (err) {
       res.status(500).json({
         status: false,
-        creator: "FlowFalcon",
+        creator: "WILKER-OFC",
         message: 'Gagal mengirim email',
         error: err.message
       });

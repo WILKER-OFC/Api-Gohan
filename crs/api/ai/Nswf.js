@@ -14,7 +14,7 @@ module.exports = function (app) {
     if (!prompt) {
       return res.status(400).json({
         status: false,
-        creator: 'FlowFalcon',
+        creator: 'WILKER-OFC',
         message: 'Parameter "prompt" wajib diisi.'
       });
     }
@@ -23,7 +23,7 @@ module.exports = function (app) {
     if (!styles.includes(style)) {
       return res.status(400).json({
         status: false,
-        creator: 'FlowFalcon',
+        creator: 'WILKER-OFC',
         message: `Style tidak valid. Pilih salah satu: ${styles.join(', ')}`
       });
     }
@@ -86,7 +86,7 @@ module.exports = function (app) {
       if (!resultUrl) {
         return res.status(429).json({
           status: false,
-          creator: 'FlowFalcon',
+          creator: 'WILKER-OFC',
           message: 'Limit telah tercapai, tunggu beberapa jam kedepan'
         });
       }
@@ -103,7 +103,7 @@ module.exports = function (app) {
     } catch (err) {
       return res.status(429).json({
         status: false,
-        creator: 'FlowFalcon',
+        creator: 'WILKER-OFC',
         message: 'Limit telah tercapai, tunggu beberapa jam kedepan'
       });
     }

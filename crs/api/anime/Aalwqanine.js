@@ -31,7 +31,7 @@ module.exports = function (app) {
         result.push({ title, link, image, type, episode, url_api: `${apiBase}/detail?url=${encodeURIComponent(link)}` });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result });
+      res.json({ status: true, creator: "WILKER-OFC", result });
     } catch (err) {
       res.status(500).json({ status: false, message: err.message });
     }
@@ -53,7 +53,7 @@ module.exports = function (app) {
         result.push({ title, link, image, type, episode, url_api: `${apiBase}/detail?url=${encodeURIComponent(link)}` });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result });
+      res.json({ status: true, creator: "WILKER-OFC", result });
     } catch (err) {
       res.status(500).json({ status: false, message: err.message });
     }
@@ -74,7 +74,7 @@ module.exports = function (app) {
         result.push({ title, link, image, type, url_api: `${apiBase}/detail?url=${encodeURIComponent(link)}` });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result });
+      res.json({ status: true, creator: "WILKER-OFC", result });
     } catch (err) {
       res.status(500).json({ status: false, message: err.message });
     }
@@ -95,7 +95,7 @@ module.exports = function (app) {
         result.push({ title, link, image, type, url_api: `${apiBase}/detail?url=${encodeURIComponent(link)}` });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result });
+      res.json({ status: true, creator: "WILKER-OFC", result });
     } catch (err) {
       res.status(500).json({ status: false, message: err.message });
     }
@@ -116,7 +116,7 @@ module.exports = function (app) {
         result.push({ title, link, image, genre, url_api: `${apiBase}/detail?url=${encodeURIComponent(link)}` });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result });
+      res.json({ status: true, creator: "WILKER-OFC", result });
     } catch (err) {
       res.status(500).json({ status: false, message: err.message });
     }
@@ -136,7 +136,7 @@ module.exports = function (app) {
         result.push({ title, link, episode, url_api: `${apiBase}/detail?url=${encodeURIComponent(link)}` });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result });
+      res.json({ status: true, creator: "WILKER-OFC", result });
     } catch (err) {
       res.status(500).json({ status: false, message: err.message });
     }
@@ -159,7 +159,7 @@ module.exports = function (app) {
         result.push({ title, link, image, url_api: `${apiBase}/detail?url=${encodeURIComponent(link)}` });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result });
+      res.json({ status: true, creator: "WILKER-OFC", result });
     } catch (err) {
       res.status(500).json({ status: false, message: err.message });
     }
@@ -195,7 +195,7 @@ module.exports = function (app) {
 
       res.json({
         status: true,
-        creator: "FlowFalcon",
+        creator: "WILKER-OFC",
         result: { title, thumb, cover, synopsis, information, genres, download_api }
       });
     } catch (err) {
@@ -230,7 +230,7 @@ module.exports = function (app) {
         downloadLinks.push({ episode, resolutions });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result: downloadLinks });
+      res.json({ status: true, creator: "WILKER-OFC", result: downloadLinks });
     } catch (err) {
       res.status(500).json({ status: false, message: err.message });
     }

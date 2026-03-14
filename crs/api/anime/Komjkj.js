@@ -34,7 +34,7 @@ module.exports = function (app) {
         result.push({ title, thumbnail, type, score, detail_api: `${apiBase}/detail?url=${encodeURIComponent(url)}` });
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result });
+      res.json({ status: true, creator: "WILKER-OFC", result });
     } catch (e) {
       res.status(500).json({ status: false, message: e.message });
     }
@@ -83,7 +83,7 @@ app.get('/anime/doujin/detail', async (req, res) => {
 
         res.json({
             status: true,
-            creator: "FlowFalcon",
+            creator: "WILKER-OFC",
             result: { title, type, status: statusText, cover, synopsis, info, genres, chapters }
         });
     } catch (e) {
@@ -107,7 +107,7 @@ app.get('/anime/doujin/detail', async (req, res) => {
         if (img && !img.includes('logo')) images.push(img);
       });
 
-      res.json({ status: true, creator: "FlowFalcon", result: { title, images } });
+      res.json({ status: true, creator: "WILKER-OFC", result: { title, images } });
     } catch (e) {
       res.status(500).json({ status: false, message: e.message });
     }

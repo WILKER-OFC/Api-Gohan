@@ -50,7 +50,7 @@ module.exports = function (app) {
     if (result?.error) {
       return res.status(500).json({
         status: false,
-        creator: 'FlowFalcon',
+        creator: 'WILKER-OFC',
         message: 'Gagal mengambil jadwal rilis anime',
         error: result.message
       });
@@ -58,7 +58,7 @@ module.exports = function (app) {
 
     res.json({
       status: true,
-      creator: 'FlowFalcon',
+      creator: 'WILKER-OFC',
       result
     });
   });

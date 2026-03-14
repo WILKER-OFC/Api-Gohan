@@ -67,14 +67,14 @@ module.exports = function (app) {
 
       res.json({
         status: true,
-        creator: "FlowFalcon",
+        creator: "WILKER-OFC",
         result
       });
     } catch (err) {
       const detail = err.response?.data || err.message;
       res.status(500).json({
         status: false,
-        creator: "FlowFalcon",
+        creator: "WILKER-OFC",
         message: "Gagal mengubah gambar ke gaya Ghibli",
         error: detail
       });

@@ -141,7 +141,7 @@ app.use((req, res, next) => {
         if (data && typeof data === 'object') {
             const responseData = {
                 status: data.status,
-                creator: settings.apiSettings.creator || "FlowFalcon",
+                creator: settings.apiSettings.creator || "WILKER-OFC",
                 ...data
             };
             return originalJson.call(this, responseData);

@@ -42,7 +42,7 @@ module.exports = function (app) {
 
       res.json({
         status: true,
-        creator: "FlowFalcon",
+        creator: "WILKER-OFC",
         result: {
           label: top.label,
           confidence: `${(top.score * 100).toFixed(2)}%`,
@@ -52,7 +52,7 @@ module.exports = function (app) {
     } catch (e) {
       res.status(500).json({
         status: false,
-        creator: "FlowFalcon",
+        creator: "WILKER-OFC",
         message: "Gagal mengecek konten dari gambar",
         error: e.response?.data || e.message
       });

@@ -51,16 +51,16 @@ module.exports = function (app) {
         scrapedData.rekomendasiGenre.push({ genre, animeList });
       });
 
-      res.json({ status: true, creator: 'FlowFalcon', result: scrapedData });
+      res.json({ status: true, creator: 'WILKER-OFC', result: scrapedData });
     } catch (err) {
-      res.status(500).json({ status: false, creator: 'FlowFalcon', message: err.message });
+      res.status(500).json({ status: false, creator: 'WILKER-OFC', message: err.message });
     }
   });
 
   // === SEARCH ===
   app.get('/anime/kompi/search', async (req, res) => {
     const q = req.query.q;
-    if (!q) return res.status(400).json({ status: false, creator: 'FlowFalcon', message: 'Parameter q wajib diisi' });
+    if (!q) return res.status(400).json({ status: false, creator: 'WILKER-OFC', message: 'Parameter q wajib diisi' });
 
     try {
       const { data } = await axios.get(`${baseUrl}/?s=${encodeURIComponent(q)}`);
@@ -75,16 +75,16 @@ module.exports = function (app) {
         });
       });
 
-      res.json({ status: true, creator: 'FlowFalcon', result: searchResults });
+      res.json({ status: true, creator: 'WILKER-OFC', result: searchResults });
     } catch (err) {
-      res.status(500).json({ status: false, creator: 'FlowFalcon', message: err.message });
+      res.status(500).json({ status: false, creator: 'WILKER-OFC', message: err.message });
     }
   });
 
   // === DETAIL ===
 app.get('/anime/kompi/detail', async (req, res) => {
     const url = req.query.url;
-    if (!url) return res.status(400).json({ status: false, creator: 'FlowFalcon', message: 'Parameter url wajib diisi' });
+    if (!url) return res.status(400).json({ status: false, creator: 'WILKER-OFC', message: 'Parameter url wajib diisi' });
 
     try {
       const { data } = await axios.get(url);
@@ -127,16 +127,16 @@ app.get('/anime/kompi/detail', async (req, res) => {
         });
       });
 
-      res.json({ status: true, creator: 'FlowFalcon', result: animeData });
+      res.json({ status: true, creator: 'WILKER-OFC', result: animeData });
     } catch (err) {
-      res.status(500).json({ status: false, creator: 'FlowFalcon', message: err.message });
+      res.status(500).json({ status: false, creator: 'WILKER-OFC', message: err.message });
     }
   });
 
   // === STREAM ===
   app.get('/anime/kompi/stream', async (req, res) => {
     const url = req.query.url;
-    if (!url) return res.status(400).json({ status: false, creator: 'FlowFalcon', message: 'Parameter url wajib diisi' });
+    if (!url) return res.status(400).json({ status: false, creator: 'WILKER-OFC', message: 'Parameter url wajib diisi' });
 
     try {
       const { data: html } = await axios.get(url);
@@ -193,10 +193,10 @@ app.get('/anime/kompi/detail', async (req, res) => {
         });
       });
 
-      res.json({ status: true, creator: 'FlowFalcon', result: animeData });
+      res.json({ status: true, creator: 'WILKER-OFC', result: animeData });
 
     } catch (err) {
-      res.status(500).json({ status: false, creator: 'FlowFalcon', message: err.message });
+      res.status(500).json({ status: false, creator: 'WILKER-OFC', message: err.message });
     }
   });
 
