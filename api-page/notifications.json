@@ -1,16 +1,8 @@
 [
-    {
-    "id": "#01",
-    "date": "2025-09-29",
-    "title": "Gohan api", 
-    "message": "Gohan API beast? sung ke fathurweb.qzz.io (masih satu orang yang kerjain btw) lagi aktif-aktifnya loh",
-    "read": false
-    },
   {
-    "id": "#02",
-    "date": "2025-09-07",
-    "title": "Sistem Rest API", 
-    "message": "Perubahan Design dan perbaikan bug",
-    "read": true
+    "title": "Welcome",
+    "message": "Edit api-page/notifications.json to change these notifications.",
+    "date": "2026-03-14T00:00:00.000Z",
+    "read": false
   }
 ]

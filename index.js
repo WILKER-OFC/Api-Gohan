@@ -10,8 +10,22 @@ require("./function.js");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Ganti webhook Discord lu disini:
-const WEBHOOK_URL = 'https://discord.com/api/webhooks/1396122030163628112/-vEj4HjREjbaOVXDu5932YjeHpTkjNSKyUKugBFF9yVCBeQSrdgK8qM3HNxVYTOD5BYP';
+// Optional Discord webhook for logging (disabled by default).
+// Set env var `DISCORD_WEBHOOK_URL` to enable.
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || '';
+let webhookWarned = false;
+
+async function postToDiscordWebhook(content) {
+    if (!DISCORD_WEBHOOK_URL) return;
+    try {
+        await axios.post(DISCORD_WEBHOOK_URL, { content });
+    } catch (err) {
+        if (!webhookWarned) {
+            webhookWarned = true;
+            console.warn('Discord webhook post failed (logging disabled):', err?.message || err);
+        }
+    }
+}
 
 // Buffer untuk batch log
 let logBuffer = [];
@@ -32,7 +46,7 @@ ${combinedLogs}
 \`\`\`
 `;
 
-    axios.post(WEBHOOK_URL, { content: payload }).catch(console.error);
+    postToDiscordWebhook(payload);
 }, 2000);
 
 // Function log queue
@@ -91,7 +105,7 @@ const userTag = '<@1162931657276395600>';
 \`\`\`
 `;
 
-        axios.post(WEBHOOK_URL, { content: spamMsg }).catch(console.error);
+        postToDiscordWebhook(spamMsg);
 
         setTimeout(() => {
             isCooldown = false;
@@ -159,20 +173,40 @@ app.use('/src', (req, res) => {
 
 // Load API routes dinamis dari src/api/
 let totalRoutes = 0;
-const apiFolder = path.join(__dirname, './src/api');
-fs.readdirSync(apiFolder).forEach((subfolder) => {
-    const subfolderPath = path.join(apiFolder, subfolder);
-    if (fs.statSync(subfolderPath).isDirectory()) {
-        fs.readdirSync(subfolderPath).forEach((file) => {
-            const filePath = path.join(subfolderPath, file);
-            if (path.extname(file) === '.js') {
-                require(filePath)(app);
-                totalRoutes++;
-                console.log(chalk.bgHex('#FFFF99').hex('#333').bold(` Loaded Route: ${path.basename(file)} `));
-            }
-        });
+const apiFoldersToTry = [
+    path.join(__dirname, './src/api'),
+    path.join(__dirname, './crs/api'),
+];
+
+const apiFolder = apiFoldersToTry.find((candidatePath) => {
+    try {
+        return fs.existsSync(candidatePath) && fs.statSync(candidatePath).isDirectory();
+    } catch {
+        return false;
     }
 });
+
+if (!apiFolder) {
+    console.warn(
+        chalk.yellow(
+            `Warning: API folder not found. Looked for: ${apiFoldersToTry.map(p => JSON.stringify(p)).join(', ')}`
+        )
+    );
+} else {
+    fs.readdirSync(apiFolder).forEach((subfolder) => {
+        const subfolderPath = path.join(apiFolder, subfolder);
+        if (fs.statSync(subfolderPath).isDirectory()) {
+            fs.readdirSync(subfolderPath).forEach((file) => {
+                const filePath = path.join(subfolderPath, file);
+                if (path.extname(file) === '.js') {
+                    require(filePath)(app);
+                    totalRoutes++;
+                    console.log(chalk.bgHex('#FFFF99').hex('#333').bold(` Loaded Route: ${path.basename(file)} `));
+                }
+            });
+        }
+    });
+}
 
 console.log(chalk.bgHex('#90EE90').hex('#333').bold(' Load Complete! ✓ '));
 console.log(chalk.bgHex('#90EE90').hex('#333').bold(` Total Routes Loaded: ${totalRoutes} `));

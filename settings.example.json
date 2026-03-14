@@ -7,8 +7,8 @@
     "status": "Online!"
   },
   "apiSettings": {
-    "creator": "Devwilker", 
-    "apikey": ["gohan-key"]
+    "creator": "Devwilker",
+    "apikey": ["YOUR_API_KEY"]
   },
   "categories": [
     {
