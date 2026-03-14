@@ -1,10 +1,10 @@
 {
   "name": "GOHAN-API",
   "version": "v2.0",
-  "description": "simple and powerful tools API and easy to use",
+  "description": "API de herramientas simple, potente y fácil de usar",
   "bannerImage": "/assets/banner.jpg",
   "header": {
-    "status": "Online!"
+    "status": "¡En línea!"
   },
   "apiSettings": {
     "creator": "WILKER-OFC",
@@ -14,15 +14,29 @@
   },
   "categories": [
     {
+      "name": "Musica",
+      "items": [
+        {
+          "name": "YouTube MP3 (ytmp3)",
+          "desc": "Busca música y obtén el enlace de descarga MP3 de YouTube.",
+          "path": "/api/ytmp3?text=",
+          "status": "ready",
+          "params": {
+            "text": "hola remix"
+          }
+        }
+      ]
+    },
+    {
       "name": "OpenAI",
       "items": [
         {
           "name": "OpenAI Llama3",
-          "desc": "Chat dengan model Llama3-8B-8192 Cepat dan cerdas.",
+          "desc": "Chatea con el modelo Llama3-8B-8192, rápido e inteligente.",
           "path": "/ai/openai?text=",
           "status": "ready",
           "params": {
-            "text": "Teks atau pertanyaan yang ingin diajukan ke AI."
+            "text": "Texto o pregunta para la IA."
           }
         }
       ]
@@ -31,360 +45,360 @@
       "name": "Anime",
       "items": [
         {
-          "name": "Berita Anime",
-          "desc": "Menarik daftar berita anime terbaru dari MyAnimeList.",
+          "name": "Noticias de Anime",
+          "desc": "Obtén la lista de noticias de anime más recientes de MyAnimeList.",
           "path": "/anime/beritaanime?id=",
           "params": {
-            "id": "ID berita yang didapat dari endpoint 'Berita Anime'."
+            "id": "ID de la noticia obtenido del endpoint 'Noticias de Anime'."
           },
           "status": "ready"
         },
         {
-          "name": "Detail Berita Anime",
-          "desc": "Mengambil konten lengkap dari sebuah berita anime berdasarkan ID-nya.",
+          "name": "Detalle de Noticia",
+          "desc": "Obtén el contenido completo de una noticia de anime según su ID.",
           "path": "/anime/berita",
           "status": "ready"
         },
         {
-          "name": "Jadwal Rilis Anime",
-          "desc": "Menampilkan jadwal rilis anime mingguan dari LiveChart.me.",
+          "name": "Calendario de Estrenos",
+          "desc": "Muestra el calendario semanal de lanzamientos de anime de LiveChart.me.",
           "path": "/anime/jadwalrilis",
           "status": "ready"
         },
         {
-          "name": "Update Anime Terbaru",
-          "desc": "Menampilkan daftar anime dengan episode yang baru saja di-update di AnimeDao.",
+          "name": "Últimas Actualizaciones",
+          "desc": "Muestra la lista de animes con episodios recién actualizados en AnimeDao.",
           "path": "/anime/latest",
           "status": "ready"
         },
         {
-          "name": "Anime Populer",
-          "desc": "Menampilkan daftar anime yang sedang populer (hot) di AnimeDao.",
+          "name": "Anime Popular",
+          "desc": "Muestra la lista de animes que son tendencia en AnimeDao.",
           "path": "/anime/hot",
           "status": "ready"
         },
         {
-          "name": "Cari Anime",
-          "desc": "Melakukan pencarian anime berdasarkan judul di database AnimeDao.",
+          "name": "Buscar Anime",
+          "desc": "Busca animes por título en la base de datos de AnimeDao.",
           "path": "/anime/search?q=",
           "status": "ready",
           "params": {
-            "q": "Judul anime yang ingin Anda cari."
+            "q": "Título del anime a buscar."
           }
         },
         {
-          "name": "Detail Anime",
-          "desc": "Menampilkan informasi mendetail dari sebuah anime berdasarkan URL halamannya di AnimeDao.",
+          "name": "Detalle de Anime",
+          "desc": "Muestra información detallada de un anime según la URL de su página en AnimeDao.",
           "path": "/anime/detail?url=",
           "status": "ready",
           "params": {
-            "url": "Contoh: 'https://animedao.lv/anime/some-anime-title/'"
+            "url": "Ejemplo: 'https://animedao.lv/anime/titulo-del-anime/'"
           }
         },
         {
-          "name": "AlqAnime Hangat",
-          "desc": "Daftar anime yang sedang hangat di AlqAnime.",
+          "name": "AlqAnime Tendencias",
+          "desc": "Lista de animes populares actualmente en AlqAnime.",
           "path": "/anime/alqanime/hangat",
           "status": "ready"
         },
         {
-          "name": "AlqAnime Rilisan",
-          "desc": "Rilisan terbaru dari AlqAnime.",
+          "name": "AlqAnime Lanzamientos",
+          "desc": "Últimos lanzamientos de AlqAnime.",
           "path": "/anime/alqanime/rilisan",
           "status": "ready"
         },
         {
-          "name": "AlqAnime Selesai",
-          "desc": "Anime yang telah selesai tayang di AlqAnime.",
+          "name": "AlqAnime Finalizados",
+          "desc": "Animes que han terminado su emisión en AlqAnime.",
           "path": "/anime/alqanime/selesai",
           "status": "ready"
         },
         {
-          "name": "AlqAnime Movie",
-          "desc": "Kumpulan film anime dari AlqAnime.",
+          "name": "AlqAnime Películas",
+          "desc": "Colección de películas de anime en AlqAnime.",
           "path": "/anime/alqanime/movie",
           "status": "ready"
         },
         {
-          "name": "AlqAnime Populer",
-          "desc": "Anime terpopuler di AlqAnime.",
+          "name": "AlqAnime Más Vistos",
+          "desc": "Los animes más populares en AlqAnime.",
           "path": "/anime/alqanime/populer",
           "status": "ready"
         },
         {
-          "name": "AlqAnime Ongoing",
-          "desc": "Daftar anime ongoing di AlqAnime.",
+          "name": "AlqAnime En Emisión",
+          "desc": "Lista de animes que se están emitiendo actualmente en AlqAnime.",
           "path": "/anime/alqanime/ongoing",
           "status": "ready"
         },
         {
-          "name": "AlqAnime Search",
-          "desc": "Mencari anime di AlqAnime.",
+          "name": "AlqAnime Buscar",
+          "desc": "Busca animes en AlqAnime.",
           "path": "/anime/alqanime/search?q=",
           "status": "ready",
           "params": {
-            "q": "Judul anime yang dicari."
+            "q": "Título del anime buscado."
           }
         },
         {
-          "name": "AlqAnime Detail",
-          "desc": "Detail anime dari AlqAnime.",
+          "name": "AlqAnime Detalle",
+          "desc": "Detalles de un anime de AlqAnime.",
           "path": "/anime/alqanime/detail?url=",
           "status": "ready",
           "params": {
-            "url": "URL detail anime AlqAnime."
+            "url": "URL de detalle del anime en AlqAnime."
           }
         },
         {
-          "name": "AlqAnime Download",
-          "desc": "Link download anime dari AlqAnime.",
+          "name": "AlqAnime Descargar",
+          "desc": "Enlace de descarga de anime de AlqAnime.",
           "path": "/anime/alqanime/download?url=",
           "status": "ready",
           "params": {
-            "url": "URL halaman download."
+            "url": "URL de la página de descarga."
           }
         },
         {
-          "name": "Doujin Search",
-          "desc": "Mencari doujin di Maid.my.id.",
+          "name": "Doujin Buscar",
+          "desc": "Busca doujins en Maid.my.id.",
           "path": "/anime/doujin/search?q=",
           "status": "ready",
           "params": {
-            "q": "Kata kunci pencarian."
+            "q": "Palabra clave de búsqueda."
           }
         },
         {
-          "name": "Doujin Detail",
-          "desc": "Melihat detail doujin.",
+          "name": "Doujin Detalle",
+          "desc": "Ver detalles de un doujin.",
           "path": "/anime/doujin/detail?url=",
           "status": "ready",
           "params": {
-            "url": "URL detail doujin."
+            "url": "URL de detalle del doujin."
           }
         },
         {
-          "name": "Doujin Chapter",
-          "desc": "Mengambil gambar dari sebuah chapter doujin.",
+          "name": "Doujin Capítulo",
+          "desc": "Obtén las imágenes de un capítulo de doujin.",
           "path": "/anime/doujin/chapter?url=",
           "status": "ready",
           "params": {
-            "url": "URL chapter doujin."
+            "url": "URL del capítulo del doujin."
           }
         }
       ]
     },
     {
-      "name": "Downloader",
+      "name": "Descargas",
       "items": [
         {
-          "name": "Tiktok Downloader",
-          "desc": "Mengunduh video dari TikTok tanpa watermark.",
+          "name": "TikTok Downloader",
+          "desc": "Descarga videos de TikTok sin marca de agua.",
           "path": "/download/tiktok?url=",
           "status": "ready",
           "params": {
-            "url": "URL video TikTok."
+            "url": "URL del video de TikTok."
           }
         },
         {
           "name": "Douyin Downloader",
-          "desc": "Mengunduh video dari Douyin (versi China dari TikTok).",
+          "desc": "Descarga videos de Douyin (versión china de TikTok).",
           "path": "/download/douyin?url=",
           "status": "ready",
           "params": {
-            "url": "URL video Douyin."
+            "url": "URL del video de Douyin."
           }
         },
         {
           "name": "Snackvideo Downloader",
-          "desc": "Mengunduh video dari Snackvideo.",
+          "desc": "Descarga videos de Snackvideo.",
           "path": "/download/snackvideo?url=",
           "status": "ready",
           "params": {
-            "url": "URL video Snackvideo."
+            "url": "URL del video de Snackvideo."
           }
         },
         {
           "name": "Capcut Downloader",
-          "desc": "Mengunduh video dari template Capcut.",
+          "desc": "Descarga videos de plantillas de Capcut.",
           "path": "/download/capcut?url=",
           "status": "ready",
           "params": {
-            "url": "URL template Capcut."
+            "url": "URL de la plantilla de Capcut."
           }
         },
         {
           "name": "Videy Downloader",
-          "desc": "Mengunduh video dari situs Videy.co.",
+          "desc": "Descarga videos del sitio Videy.co.",
           "path": "/download/videy?url=",
           "status": "ready",
           "params": {
-            "url": "URL video Videy."
+            "url": "URL del video de Videy."
           }
         }
       ]
     },
     {
-      "name": "Random",
+      "name": "Aleatorio",
       "items": [
         {
-          "name": "Blue Archive Image",
-          "desc": "Menampilkan gambar acak dari karakter game Blue Archive.",
+          "name": "Imagen de Blue Archive",
+          "desc": "Muestra una imagen aleatoria de personajes del juego Blue Archive.",
           "path": "/random/ba",
           "status": "ready"
         },
         {
-          "name": "Waifu Image (SFW)",
-          "desc": "Menampilkan gambar waifu acak yang aman (SFW).",
+          "name": "Imagen Waifu (SFW)",
+          "desc": "Muestra una imagen de waifu aleatoria segura para el trabajo (SFW).",
           "path": "/random/waifu",
           "status": "ready"
         },
         {
-          "name": "NSFW Image",
-          "desc": "Menampilkan gambar anime acak yang tidak aman (NSFW).",
+          "name": "Imagen NSFW",
+          "desc": "Muestra una imagen de anime aleatoria no segura para el trabajo (NSFW).",
           "path": "/random/nsfw",
           "status": "ready"
         },
         {
-          "name": "Pap Ayang",
-          "desc": "Menampilkan gambar 'PAP Ayang' secara acak.",
+          "name": "PAP Ayang",
+          "desc": "Muestra una imagen aleatoria de 'PAP Ayang'.",
           "path": "/random/papayang",
           "status": "ready"
         }
       ]
     },
     {
-      "name": "Tools",
+      "name": "Herramientas",
       "items": [
         {
-          "name": "Text-to-Speech",
-          "desc": "Mengubah teks menjadi suara (TTS) dengan berbagai pilihan suara, termasuk karakter anime.",
+          "name": "Texto a Voz",
+          "desc": "Convierte texto en voz (TTS) con varias opciones, incluyendo personajes de anime.",
           "path": "/tools/text-to-speech?text=",
           "status": "ready",
           "params": {
-            "text": "Teks yang ingin diubah menjadi suara."
+            "text": "Texto que deseas convertir en voz."
           }
         },
         {
-          "name": "Emoji Mix",
-          "desc": "Menggabungkan dua emoji menjadi satu emoji baru yang unik dalam bentuk gambar.",
+          "name": "Mezcla de Emojis",
+          "desc": "Combina dos emojis en uno nuevo y único en formato de imagen.",
           "path": "/tools/emojimix?emoji1=&emoji2=",
           "status": "ready",
           "params": {
-            "emoji1": "Emoji pertama (contoh: 😂).",
-            "emoji2": "Emoji kedua (contoh: 👍)."
+            "emoji1": "Primer emoji (ej: 😂).",
+            "emoji2": "Segundo emoji (ej: 👍)."
           }
         },
         {
-          "name": "Host Info",
-          "desc": "Mendapatkan informasi detail mengenai sebuah host (IP atau domain).",
+          "name": "Información de Host",
+          "desc": "Obtén información detallada de un host (IP o dominio).",
           "path": "/tools/hostinfo?host=",
           "status": "ready",
           "params": {
-            "host": "Alamat IP atau nama domain (contoh: google.com)."
+            "host": "Dirección IP o nombre de dominio (ej: google.com)."
           }
         },
         {
-          "name": "NSFW Content Check",
-          "desc": "Mendeteksi apakah sebuah gambar mengandung konten dewasa (NSFW).",
+          "name": "Chequeo de Contenido NSFW",
+          "desc": "Detecta si una imagen contiene contenido para adultos (NSFW).",
           "path": "/tools/nsfw-check?url=",
           "status": "ready",
           "params": {
-            "url": "URL gambar yang ingin diperiksa."
+            "url": "URL de la imagen a revisar."
           }
         }
       ]
     },
     {
-      "name": "Search",
+      "name": "Búsqueda",
       "items": [
         {
-          "name": "Youtube",
-          "desc": "Melakukan pencarian video di platform YouTube.",
+          "name": "YouTube",
+          "desc": "Realiza búsquedas de videos en la plataforma YouTube.",
           "path": "/search/youtube?q=",
           "status": "ready",
           "params": {
-            "q": "Kata kunci untuk pencarian video."
+            "q": "Musica"
           }
         },
         {
-          "name": "Spotify Search",
-          "desc": "Melakukan pencarian lagu berdasarkan judul atau artis di Spotify.",
+          "name": "Spotify Buscar",
+          "desc": "Busca canciones por título o artista en Spotify.",
           "path": "/search/spotify?query=",
           "status": "ready",
           "params": {
-            "query": "Judul lagu atau nama artis."
+            "query": "Título de la canción o nombre del artista."
           }
         },
         {
-          "name": "Google Image Search",
-          "desc": "Melakukan pencarian gambar di Google Images.",
+          "name": "Google Imágenes",
+          "desc": "Busca imágenes en Google Images.",
           "path": "/search/gimage?q=",
           "status": "ready",
           "params": {
-            "q": "Kata kunci untuk pencarian gambar."
+            "q": "Palabra clave para buscar imágenes."
           }
         },
         {
-          "name": "Play Store Search",
-          "desc": "Mencari aplikasi di Google Play Store.",
+          "name": "Play Store Buscar",
+          "desc": "Busca aplicaciones en la Google Play Store.",
           "path": "/search/playstore?q=",
           "status": "ready",
           "params": {
-            "q": "Nama aplikasi yang ingin dicari."
+            "q": "Nombre de la aplicación a buscar."
           }
         },
         {
-          "name": "NPM Package Search",
-          "desc": "Mencari package di Node Package Manager (NPM).",
+          "name": "NPM Paquetes",
+          "desc": "Busca paquetes en el Node Package Manager (NPM).",
           "path": "/search/npm?q=",
           "status": "ready",
           "params": {
-            "q": "Nama package NPM yang ingin dicari."
+            "q": "Nombre del paquete NPM a buscar."
           }
         },
         {
-          "name": "F-Droid Search",
-          "desc": "Mencari aplikasi open-source di F-Droid.",
+          "name": "F-Droid Buscar",
+          "desc": "Busca aplicaciones de código abierto en F-Droid.",
           "path": "/search/fdroid?q=",
           "status": "ready",
           "params": {
-            "q": "Nama aplikasi yang ingin dicari di F-Droid."
+            "q": "Nombre de la aplicación en F-Droid."
           }
         },
         {
-          "name": "Happymod Search",
-          "desc": "Mencari aplikasi atau game modifikasi di Happymod.",
+          "name": "Happymod Buscar",
+          "desc": "Busca aplicaciones o juegos modificados en Happymod.",
           "path": "/search/happymod?q=",
           "status": "ready",
           "params": {
-            "q": "Nama aplikasi atau game yang ingin dicari."
+            "q": "Nombre de la aplicación o juego."
           }
         },
         {
-          "name": "Tiktok Search",
-          "desc": "Melakukan pencarian video di TikTok.",
+          "name": "TikTok Buscar",
+          "desc": "Realiza búsquedas de videos en TikTok.",
           "path": "/search/tiktok?q=",
           "status": "ready",
           "params": {
-            "q": "Kata kunci untuk pencarian video TikTok."
+            "q": "Palabra clave para buscar videos en TikTok."
           }
         },
         {
-          "name": "XNXX Search",
-          "desc": "Melakukan pencarian video di XNXX.",
+          "name": "XNXX Buscar",
+          "desc": "Realiza búsquedas de videos en XNXX.",
           "path": "/search/xnxx?q=",
           "status": "ready",
           "params": {
-            "q": "Kata kunci untuk pencarian video XNXX."
+            "q": "Palabra clave para buscar videos en XNXX."
           }
         },
         {
-          "name": "Sfile Search",
-          "desc": "Mencari file di layanan hosting Sfile.mobi.",
+          "name": "Sfile Buscar",
+          "desc": "Busca archivos en el servicio de hosting Sfile.mobi.",
           "path": "/search/sfile?q=",
           "status": "ready",
           "params": {
-            "q": "Kata kunci untuk pencarian file di Sfile."
+            "q": "Palabra clave para buscar archivos en Sfile."
           }
         }
       ]
@@ -393,8 +407,8 @@
       "name": "API",
       "items": [
         {
-          "name": "API Status",
-          "desc": "Memeriksa status layanan API, termasuk total request, total fitur, dan waktu aktif (uptime).",
+          "name": "Estado de la API",
+          "desc": "Verifica el estado del servicio, incluyendo total de peticiones, funciones y tiempo de actividad.",
           "path": "/api/status",
           "status": "ready"
         }
