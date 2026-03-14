@@ -1,7 +1,7 @@
 {
   "name": "GOHAN-API",
   "version": "v2.0",
-  "description": "API de herramientas simple, potente y fácil de usar",
+  "description": "API de enpoints simple, potente y fácil de usar",
   "bannerImage": "/assets/banner.jpg",
   "header": {
     "status": "¡En línea!"
@@ -13,20 +13,6 @@
     ]
   },
   "categories": [
-    {
-      "name": "Descargas",
-      "items": [
-        {
-          "name": "YouTube MP3 (ytmp3)",
-          "desc": "Busca música y obtén el enlace de descarga MP3 de YouTube.",
-          "path": "/api/ytmp3?text=",
-          "status": "ready",
-          "params": {
-            "text": "hola remix"
-          }
-        }
-      ]
-    },
     {
       "name": "OpenAI",
       "items": [
@@ -190,6 +176,15 @@
     {
       "name": "Descargas",
       "items": [
+        {
+          "name": "YouTube MP3 (ytmp3)",
+          "desc": "Busca música y obtén el enlace de descarga MP3 de YouTube.",
+          "path": "/api/ytmp3?text=",
+          "status": "ready",
+          "params": {
+            "text": "hola remix"
+          }
+        },
         {
           "name": "TikTok Downloader",
           "desc": "Descarga videos de TikTok sin marca de agua.",
